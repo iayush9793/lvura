@@ -12,7 +12,7 @@
   <meta name="keywords" content="L'VURA, luxury bottled water, premium mineral water, packaged drinking water, alkaline water, corporate hydration, gym hydration">
   <meta name="theme-color" content="#07080b">
 
-  <!-- Google Fonts: Playfair Display (Luxury Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <!-- Google Fonts: Playfair Display, Plus Jakarta Sans, Cinzel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
@@ -84,7 +84,6 @@
       position: relative;
     }
 
-    /* Ambient Gold-Blue Water Glow Mesh */
     body::before {
       content: '';
       position: fixed;
@@ -125,7 +124,6 @@
       height: auto;
     }
 
-    /* Container Utility */
     .container {
       width: 100%;
       max-width: 1280px;
@@ -148,7 +146,7 @@
       }
     }
 
-    /* Custom Water-Drop Cursor */
+    /* Water-Drop Cursor */
     .custom-cursor {
       position: fixed;
       top: 0;
@@ -187,6 +185,65 @@
       }
     }
 
+    /* Audio Toggle Button */
+    .sound-control-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 99999;
+      background: rgba(17, 20, 32, 0.85);
+      border: 1px solid var(--border-soft);
+      backdrop-filter: blur(10px);
+      padding: 9px 16px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: var(--transition-smooth);
+    }
+
+    .sound-control-btn:hover {
+      background: rgba(26, 32, 50, 0.95);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .sound-wave-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 2.5px;
+      height: 14px;
+    }
+
+    .sound-wave-bar {
+      width: 2.5px;
+      background: var(--azure-electric);
+      border-radius: 2px;
+      animation: soundWavePlay 1.2s ease-in-out infinite alternate;
+    }
+
+    .sound-wave-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .sound-wave-bar:nth-child(2) { height: 14px; animation-delay: 0.3s; }
+    .sound-wave-bar:nth-child(3) { height: 9px; animation-delay: 0.2s; }
+    .sound-wave-bar:nth-child(4) { height: 12px; animation-delay: 0.4s; }
+
+    .sound-control-btn.muted .sound-wave-bar {
+      animation: none;
+      height: 3px;
+      background: var(--text-muted);
+    }
+
+    @keyframes soundWavePlay {
+      0% { height: 3px; }
+      100% { height: 14px; }
+    }
+
     /* =========================================================================
        PRELOADER: Logo with Zoom In / Zoom Out Breathing Animation
        ========================================================================= */
@@ -221,7 +278,6 @@
       gap: 22px;
     }
 
-    /* Logo Zoom-In & Zoom-Out Effect */
     .preloader-logo {
       height: 95px;
       width: auto;
@@ -283,9 +339,7 @@
       100% { left: 100%; }
     }
 
-    /* =========================================================================
-       NAVIGATION BAR
-       ========================================================================= */
+    /* HEADER */
     header.site-header {
       position: fixed;
       top: 0;
@@ -431,7 +485,6 @@
       padding: 6px;
     }
 
-    /* Mobile Drawer */
     .mobile-drawer-backdrop {
       position: fixed;
       inset: 0;
@@ -479,9 +532,7 @@
       }
     }
 
-    /* =========================================================================
-       HERO SECTION
-       ========================================================================= */
+    /* HERO */
     .hero-section {
       position: relative;
       padding-top: 170px;
@@ -601,7 +652,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Floating Bottle Interactive Showcase */
     .hero-showcase-box {
       position: relative;
       display: flex;
@@ -638,7 +688,6 @@
       transform: scale(1.05) rotate(-2deg);
     }
 
-    /* Floating Metric Badges */
     .badge-float {
       position: absolute;
       background: rgba(17, 20, 32, 0.88);
@@ -711,7 +760,6 @@
       }
     }
 
-    /* Wave Bottom Divider */
     .hero-wave-divider {
       position: absolute;
       bottom: -1px;
@@ -722,9 +770,7 @@
       pointer-events: none;
     }
 
-    /* =========================================================================
-       PURITY & PURIFICATION STRIP
-       ========================================================================= */
+    /* TRUST STRIP */
     .trust-strip {
       background: #090c13;
       border-top: 1px solid var(--border-soft);
@@ -765,9 +811,7 @@
       color: var(--text-muted);
     }
 
-    /* =========================================================================
-       SECTION HEADINGS
-       ========================================================================= */
+    /* HEADERS */
     .section-header {
       text-align: center;
       max-width: 780px;
@@ -804,9 +848,7 @@
       line-height: 1.7;
     }
 
-    /* =========================================================================
-       COLLECTION / BOTTLE PORTFOLIO SHOWCASE
-       ========================================================================= */
+    /* COLLECTION */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -915,9 +957,7 @@
       font-weight: 600;
     }
 
-    /* =========================================================================
-       PROCESS & PURIFICATION SECTION
-       ========================================================================= */
+    /* PROCESS */
     .process-section {
       background: linear-gradient(180deg, #090c13 0%, #111524 100%);
       position: relative;
@@ -984,9 +1024,7 @@
       }
     }
 
-    /* =========================================================================
-       CORPORATE & HOSPITALITY STORY (HQ & Meetings)
-       ========================================================================= */
+    /* STORY (coff.jpg & meet.jpg) */
     .story-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1069,9 +1107,7 @@
       }
     }
 
-    /* =========================================================================
-       NUMERICAL IMPACT COUNTER
-       ========================================================================= */
+    /* COUNTERS */
     .stats-counter-banner {
       background: linear-gradient(135deg, #101422 0%, #1a1e30 50%, #0d101b 100%);
       border: 1px solid var(--border-soft);
@@ -1130,9 +1166,7 @@
       }
     }
 
-    /* =========================================================================
-       FAQS ACCORDION
-       ========================================================================= */
+    /* FAQS */
     .faq-wrapper {
       max-width: 860px;
       margin: 0 auto;
@@ -1194,16 +1228,14 @@
       background: rgba(9, 11, 18, 0.8);
     }
 
-    .faq-body-inner {
+    .faq-body-content {
       padding: 0 26px 24px;
       font-size: 0.95rem;
       color: var(--text-silver);
       line-height: 1.7;
     }
 
-    /* =========================================================================
-       CONTACT & CORPORATE DISTRIBUTION FORM
-       ========================================================================= */
+    /* CONTACT CARD */
     .contact-card-box {
       background: var(--bg-card);
       border: 1px solid var(--border-soft);
@@ -1277,7 +1309,6 @@
       color: var(--gold-light);
     }
 
-    /* Contact Form Styles */
     .lead-form-wrap {
       display: flex;
       flex-direction: column;
@@ -1347,9 +1378,7 @@
       }
     }
 
-    /* =========================================================================
-       FOOTER
-       ========================================================================= */
+    /* FOOTER */
     footer.site-footer {
       background: #040508;
       border-top: 1px solid rgba(212, 175, 55, 0.18);
@@ -1443,7 +1472,7 @@
       }
     }
 
-    /* Modal Overlay (Quick Quote & Inquiry) */
+    /* MODAL */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -1515,7 +1544,7 @@
       padding: 30px;
     }
 
-    /* Toast Notification */
+    /* TOAST */
     .toast-popup {
       position: fixed;
       bottom: 24px;
@@ -1542,7 +1571,6 @@
       opacity: 1;
     }
 
-    /* Reveal On Scroll Utility */
     .reveal-elem {
       opacity: 0;
       transform: translateY(30px);
@@ -1557,17 +1585,25 @@
 </head>
 <body>
 
+  <!-- Floating Audio Atmosphere Toggle Button -->
+  <button id="soundToggleBtn" class="sound-control-btn" title="Toggle gentle water sound">
+    <div class="sound-wave-icon" id="soundWaveBars">
+      <div class="sound-wave-bar"></div>
+      <div class="sound-wave-bar"></div>
+      <div class="sound-wave-bar"></div>
+      <div class="sound-wave-bar"></div>
+    </div>
+    <span id="soundStatusText">Pouring Water</span>
+  </button>
+
   <!-- Custom Water Droplet & Ripple Cursor -->
   <div class="custom-cursor" id="customCursor" aria-hidden="true"></div>
   <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
 
-  <!-- =========================================================================
-       PRELOADER: Logo with Zoom In / Zoom Out Breathing Animation
-       ========================================================================= -->
+  <!-- PRELOADER -->
   <div id="preloader" role="status" aria-label="Loading L'VURA Hydration Experience">
     <div class="preloader-glow"></div>
     <div class="preloader-box">
-      <!-- Logo used with zoom-in & zoom-out animation -->
       <img src="logo.png" alt="L'VURA Hydration Logo" class="preloader-logo" onerror="this.src='https://placehold.co/240x100/0b0d14/d4af37?text=L%27VURA';">
       <div class="preloader-subtext">Pure • Balanced • Crafted</div>
       <div class="preloader-bar-wrap">
@@ -1576,17 +1612,13 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       SITE HEADER / NAVIGATION
-       ========================================================================= -->
+  <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-wrap">
       <a href="#home" class="brand-logo-link" aria-label="L'VURA Home">
-        <!-- Logo file in header -->
         <img src="logo.png" alt="L'VURA Hydration Private Limited" class="brand-logo-img" onerror="this.src='https://placehold.co/180x60/0b0d14/d4af37?text=L%27VURA';">
       </a>
 
-      <!-- Desktop Links -->
       <nav aria-label="Main Navigation">
         <ul class="desktop-nav-menu">
           <li><a href="#home" class="nav-link active">Home</a></li>
@@ -1598,13 +1630,11 @@
         </ul>
       </nav>
 
-      <!-- Nav CTA -->
       <div class="nav-cta-group">
         <button type="button" class="btn-gold open-inquiry-modal" aria-haspopup="dialog">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
           Order Samples
         </button>
-        <!-- Mobile Drawer Toggle -->
         <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Open mobile menu">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -1612,7 +1642,7 @@
     </div>
   </header>
 
-  <!-- Mobile Navigation Drawer -->
+  <!-- Mobile Drawer -->
   <div class="mobile-drawer-backdrop" id="mobileBackdrop"></div>
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
     <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -1636,14 +1666,11 @@
   </aside>
 
   <main id="main-content">
-    <!-- =========================================================================
-         HERO SECTION
-         ========================================================================= -->
+    <!-- HERO SECTION -->
     <section class="hero-section" id="home">
       <div class="hero-aurora-bg"></div>
 
       <div class="container hero-grid">
-        <!-- Hero Text -->
         <div class="hero-content reveal-elem">
           <div class="hero-pill-tag">
             <span class="wave-dot"></span>
@@ -1682,16 +1709,13 @@
           </div>
         </div>
 
-        <!-- Hero Visual: Utilizing transpbottle.png & waterbbla.jpg -->
         <div class="hero-showcase-box reveal-elem" style="transition-delay: 0.15s;">
           <div class="showcase-pedestal"></div>
           
           <div class="hero-bottle-wrap" title="L'VURA Pure Hydration Bottle">
-            <!-- transpbottle.png as the main floating bottle asset with graceful fallback -->
             <img src="transpbottle.png" alt="L'VURA Transparent Signature Mineral Water Bottle" class="hero-bottle-img" onerror="this.src='waterbbla.jpg';">
           </div>
 
-          <!-- Floating Badges -->
           <div class="badge-float top-right">
             <div class="badge-icon-box">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
@@ -1714,15 +1738,12 @@
         </div>
       </div>
 
-      <!-- Bottom Decorative Wave -->
       <svg class="hero-wave-divider" viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
         <path d="M0,0 C320,45 680,55 1040,20 C1200,8 1340,25 1440,40 L1440,60 L0,60 Z" fill="#090c13"></path>
       </svg>
     </section>
 
-    <!-- =========================================================================
-         PURITY STRIP
-         ========================================================================= -->
+    <!-- TRUST STRIP -->
     <section class="trust-strip">
       <div class="container">
         <div class="trust-strip-flex">
@@ -1761,9 +1782,7 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         THE BOTTLE COLLECTION (Using 4blab.jpg, botongym.jpg, waterbbla.jpg, waterbotlle.jpg)
-         ========================================================================= -->
+    <!-- THE COLLECTION -->
     <section class="section-padding" id="collection">
       <div class="container">
         <div class="section-header reveal-elem">
@@ -1773,7 +1792,6 @@
         </div>
 
         <div class="products-grid">
-          <!-- Card 1: 4blab.jpg -->
           <div class="product-card reveal-elem">
             <div class="product-img-box">
               <span class="product-badge-pill">Executive Pack</span>
@@ -1787,7 +1805,6 @@
             </div>
           </div>
 
-          <!-- Card 2: botongym.jpg -->
           <div class="product-card reveal-elem" style="transition-delay: 0.1s;">
             <div class="product-img-box">
               <span class="product-badge-pill" style="border-color:var(--azure-electric); color:var(--azure-electric);">Fitness &amp; Gym</span>
@@ -1801,7 +1818,6 @@
             </div>
           </div>
 
-          <!-- Card 3: waterbbla.jpg -->
           <div class="product-card reveal-elem" style="transition-delay: 0.2s;">
             <div class="product-img-box">
               <span class="product-badge-pill">Pure Black Onyx</span>
@@ -1815,7 +1831,6 @@
             </div>
           </div>
 
-          <!-- Card 4: waterbotlle.jpg -->
           <div class="product-card reveal-elem" style="transition-delay: 0.3s;">
             <div class="product-img-box">
               <span class="product-badge-pill">Geometric Design</span>
@@ -1832,9 +1847,7 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         PURIFICATION & TECHNOLOGY
-         ========================================================================= -->
+    <!-- PURIFICATION -->
     <section class="section-padding process-section" id="purity">
       <div class="container">
         <div class="section-header reveal-elem">
@@ -1871,25 +1884,19 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         CORPORATE & HOSPITALITY (Using coff.jpg & meet.jpg)
-         ========================================================================= -->
+    <!-- CORPORATE & HOSPITALITY -->
     <section class="section-padding" id="corporate">
       <div class="container">
         <div class="story-grid">
-          <!-- Dual Office Images: coff.jpg & meet.jpg -->
           <div class="story-images-wrap reveal-elem">
             <div class="story-img-main">
-              <!-- coff.jpg : Corporate Office -->
               <img src="coff.jpg" alt="L'VURA Corporate Office Facilities" onerror="this.src='https://placehold.co/700x500/0b0d14/d4af37?text=Corporate+Office';">
             </div>
             <div class="story-img-secondary">
-              <!-- meet.jpg : Meeting Room -->
               <img src="meet.jpg" alt="L'VURA Executive Meeting Boardroom" onerror="this.src='https://placehold.co/600x450/090b10/00b4d8?text=Executive+Meeting+Room';">
             </div>
           </div>
 
-          <!-- Story Content -->
           <div class="story-content reveal-elem" style="transition-delay: 0.15s;">
             <span class="section-kicker">Corporate Institutional Partner</span>
             <h2>Transforming Corporate Boardrooms &amp; Premium Spaces</h2>
@@ -1920,9 +1927,7 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         IMPACT NUMERICAL COUNTERS
-         ========================================================================= -->
+    <!-- COUNTERS -->
     <section class="container reveal-elem" style="margin-bottom: 90px;">
       <div class="stats-counter-banner">
         <div class="stats-grid">
@@ -1946,9 +1951,7 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         FAQS SECTION
-         ========================================================================= -->
+    <!-- FAQS -->
     <section class="section-padding" style="background:#090c13;" id="faqs">
       <div class="container">
         <div class="section-header reveal-elem">
@@ -1958,7 +1961,6 @@
         </div>
 
         <div class="faq-wrapper">
-          <!-- FAQ 1 -->
           <div class="faq-item reveal-elem">
             <button class="faq-btn" type="button" aria-expanded="false">
               <span>What differentiates L'VURA from typical packaged drinking water?</span>
@@ -1971,7 +1973,6 @@
             </div>
           </div>
 
-          <!-- FAQ 2 -->
           <div class="faq-item reveal-elem">
             <button class="faq-btn" type="button" aria-expanded="false">
               <span>Can gyms and corporate offices order customized bulk shipments?</span>
@@ -1984,7 +1985,6 @@
             </div>
           </div>
 
-          <!-- FAQ 3 -->
           <div class="faq-item reveal-elem">
             <button class="faq-btn" type="button" aria-expanded="false">
               <span>What is the shelf life of L'VURA water bottles?</span>
@@ -1997,7 +1997,6 @@
             </div>
           </div>
 
-          <!-- FAQ 4 -->
           <div class="faq-item reveal-elem">
             <button class="faq-btn" type="button" aria-expanded="false">
               <span>Are L'VURA bottles recyclable and BPA-free?</span>
@@ -2013,20 +2012,16 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         CONTACT & INQUIRY SECTION (With specified Phone Numbers & Email)
-         ========================================================================= -->
+    <!-- CONTACT -->
     <section class="section-padding" id="contact" style="background: #06070a;">
       <div class="container">
         <div class="contact-card-box reveal-elem">
           <div class="contact-grid">
-            <!-- Contact Info Column -->
             <div class="contact-info-col">
               <span class="section-kicker">Direct Communication</span>
               <h3>Connect with L'VURA</h3>
               <p>For corporate distribution inquiries, institutional bulk procurement, or dealership alliances, contact our central hydration management team.</p>
 
-              <!-- Mail ID: info@lvura.com -->
               <div class="contact-entry">
                 <div class="contact-entry-icon">
                   <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -2037,7 +2032,6 @@
                 </div>
               </div>
 
-              <!-- Contact Numbers: +918866964986 and +918866974986 -->
               <div class="contact-entry">
                 <div class="contact-entry-icon">
                   <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
@@ -2060,7 +2054,6 @@
               </div>
             </div>
 
-            <!-- Form Column -->
             <form id="contactInquiryForm" class="lead-form-wrap" novalidate>
               <div class="form-row-2">
                 <div class="form-input-group">
@@ -2106,13 +2099,10 @@
     </section>
   </main>
 
-  <!-- =========================================================================
-       SITE FOOTER
-       ========================================================================= -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Logo & Summary -->
         <div class="footer-brand">
           <a href="#home">
             <img src="logo.png" alt="L'VURA Hydration Logo" style="height:56px; width:auto;" onerror="this.src='https://placehold.co/180x60/0b0d14/d4af37?text=L%27VURA';">
@@ -2122,7 +2112,6 @@
           </p>
         </div>
 
-        <!-- Navigation Links -->
         <div>
           <h4 class="footer-heading">Navigation</h4>
           <ul class="footer-links">
@@ -2134,7 +2123,6 @@
           </ul>
         </div>
 
-        <!-- Products -->
         <div>
           <h4 class="footer-heading">Collections</h4>
           <ul class="footer-links">
@@ -2146,7 +2134,6 @@
           </ul>
         </div>
 
-        <!-- Direct Contact Info in Footer -->
         <div>
           <h4 class="footer-heading">Reach Us</h4>
           <div class="footer-contact-txt">
@@ -2177,9 +2164,7 @@
     </div>
   </footer>
 
-  <!-- =========================================================================
-       MODAL: QUICK INQUIRY / BULK SUPPLY
-       ========================================================================= -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-header">
@@ -2216,23 +2201,167 @@
     </div>
   </div>
 
-  <!-- Toast Confirmation Popup -->
+  <!-- Toast -->
   <div class="toast-popup" id="toastBox" role="alert" aria-live="assertive">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--gold-primary)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
     <div id="toastMessage">Inquiry submitted. The L'VURA concierge will contact you promptly.</div>
   </div>
 
-  <!-- =========================================================================
-       JAVASCRIPT: CLIENT INTERACTION & ANIMATIONS
-       ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
+    /**
+     * Web Audio API: Procedural Pure Water Pouring & Stream Synthesizer
+     * Bypasses external file loading and delivers realistic, crisp, natural water sounds.
+     */
+    class LuxuryWaterAudio {
+      constructor() {
+        this.ctx = null;
+        this.gainMaster = null;
+        this.isPlaying = false;
+        this.timers = [];
+      }
+
+      init() {
+        if (this.ctx) return;
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AudioCtx();
+        this.gainMaster = this.ctx.createGain();
+        this.gainMaster.gain.setValueAtTime(0.35, this.ctx.currentTime);
+        this.gainMaster.connect(this.ctx.destination);
+      }
+
+      // Creates a soothing, organic water stream and pour
+      playPouringStream(duration = 4.2) {
+        this.init();
+        if (this.ctx.state === "suspended") {
+          this.ctx.resume();
+        }
+
+        const now = this.ctx.currentTime;
+        this.isPlaying = true;
+
+        // 1. Pink Noise stream generation (Water body)
+        const bufferSize = this.ctx.sampleRate * duration;
+        const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          b3 = 0.86650 * b3 + white * 0.3104856;
+          b4 = 0.55000 * b4 + white * 0.5329522;
+          b5 = -0.7616 * b5 - white * 0.0168980;
+          output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.08;
+          b6 = white * 0.115926;
+        }
+
+        const noiseSrc = this.ctx.createBufferSource();
+        noiseSrc.buffer = noiseBuffer;
+
+        // Bandpass to capture water resonant frequencies
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = "bandpass";
+        filter.frequency.setValueAtTime(650, now);
+        filter.frequency.exponentialRampToValueAtTime(1400, now + duration * 0.55);
+        filter.frequency.exponentialRampToValueAtTime(800, now + duration);
+        filter.Q.setValueAtTime(3.8, now);
+
+        // Water envelope
+        const streamGain = this.ctx.createGain();
+        streamGain.gain.setValueAtTime(0.0001, now);
+        streamGain.gain.exponentialRampToValueAtTime(0.48, now + 0.45);
+        streamGain.gain.setValueAtTime(0.48, now + duration - 1.2);
+        streamGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        noiseSrc.connect(filter);
+        filter.connect(streamGain);
+        streamGain.connect(this.gainMaster);
+
+        noiseSrc.start(now);
+        noiseSrc.stop(now + duration);
+
+        // 2. Play gentle rhythmic droplet plops/resonances while water pours
+        const dropTimes = [0.3, 0.7, 1.1, 1.5, 1.9, 2.3, 2.7, 3.1, 3.4, 3.7];
+        dropTimes.forEach((delay, idx) => {
+          const timer = setTimeout(() => {
+            if (this.isPlaying) {
+              const baseFreq = 700 + Math.random() * 500;
+              this.playWaterDrop(baseFreq, 0.16);
+            }
+          }, delay * 1000);
+          this.timers.push(timer);
+        });
+
+        // Auto reset icon state after completion
+        setTimeout(() => {
+          this.setAudioButtonState(false);
+        }, duration * 1000);
+      }
+
+      playWaterDrop(freq = 950, volume = 0.18) {
+        if (!this.ctx) return;
+        const t = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const dropGain = this.ctx.createGain();
+
+        osc.type = "sine";
+        // Pitch scoop upwards mimics droplet falling into pool
+        osc.frequency.setValueAtTime(freq, t);
+        osc.frequency.exponentialRampToValueAtTime(freq * 1.5, t + 0.08);
+
+        dropGain.gain.setValueAtTime(volume, t);
+        dropGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+
+        osc.connect(dropGain);
+        dropGain.connect(this.gainMaster);
+
+        osc.start(t);
+        osc.stop(t + 0.15);
+      }
+
+      setAudioButtonState(active) {
+        const btn = document.getElementById("soundToggleBtn");
+        const status = document.getElementById("soundStatusText");
+        if (!btn || !status) return;
+
+        if (active) {
+          btn.classList.remove("muted");
+          status.textContent = "Pouring Water...";
+        } else {
+          btn.classList.add("muted");
+          status.textContent = "Water Sound";
+        }
+      }
+
+      stop() {
+        this.isPlaying = false;
+        this.timers.forEach(t => clearTimeout(t));
+        this.timers = [];
+        this.setAudioButtonState(false);
+      }
+    }
+
+    const waterAudio = new LuxuryWaterAudio();
+
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Footer Year
+      // 1. Dynamic Footer Year
       const yearEl = document.getElementById("currentYear");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // 2. Preloader Removal (Smooth Reveal)
+      // 2. Preloader Removal & Automated Soft Water Pouring Sound Trigger
       const preloader = document.getElementById("preloader");
+      let soundHasTriggered = false;
+
+      function attemptWaterSound() {
+        if (!soundHasTriggered) {
+          soundHasTriggered = true;
+          waterAudio.playPouringStream(4.2);
+          waterAudio.setAudioButtonState(true);
+        }
+      }
+
       window.addEventListener("load", () => {
         setTimeout(() => {
           if (preloader) {
@@ -2242,8 +2371,37 @@
               preloader.style.display = "none";
             }, 750);
           }
+
+          // Try playing sound as preloader clears
+          try {
+            attemptWaterSound();
+          } catch(e) {
+            console.log("Autoplay waiting for gesture interaction");
+          }
         }, 1200);
       });
+
+      // Browser Autoplay Fallback (triggers instantly on first user interaction if blocked)
+      const enableAudioOnGesture = () => {
+        attemptWaterSound();
+        window.removeEventListener("click", enableAudioOnGesture);
+        window.removeEventListener("touchstart", enableAudioOnGesture);
+        window.removeEventListener("scroll", enableAudioOnGesture);
+      };
+
+      window.addEventListener("click", enableAudioOnGesture, { once: true });
+      window.addEventListener("touchstart", enableAudioOnGesture, { once: true });
+      window.addEventListener("scroll", enableAudioOnGesture, { once: true });
+
+      // Manual Sound Button
+      const soundToggleBtn = document.getElementById("soundToggleBtn");
+      if (soundToggleBtn) {
+        soundToggleBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          waterAudio.playPouringStream(4.2);
+          waterAudio.setAudioButtonState(true);
+        });
+      }
 
       // 3. Fluid Water Droplet Mouse Cursor
       initWaterCursor();
